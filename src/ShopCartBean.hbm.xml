@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="bean.ShopCartBean" schema="mis_work" table="shopcart">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="needCount" column="needCount"/>
+        <many-to-one name="loginBean" class="bean.LoginBean">
+            <column name="loginId" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="partBean" class="bean.PartBean">
+            <column name="partId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.OrderBean" table="orders" schema="mis_work">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="needCount" column="needCount"/>
+        <property name="orderDate" column="orderDate"/>
+        <property name="paymentDate" column="paymentDate"/>
+        <property name="payDate" column="payDate"/>
+        <property name="status" column="status"/>
+        <property name="extend" column="extend"/>
+        <property name="paid" column="isPaid"/>
+        <many-to-one  name="userBean" class="bean.UserBean">
+            <column name="userId"/>
+        </many-to-one>
+        <many-to-one name="partBean" class="bean.PartBean">
+            <column name="partId"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
